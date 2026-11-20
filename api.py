@@ -15,7 +15,7 @@ app = FastAPI(title="Research pipeline API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],  # Vite dev server
+    allow_origins=["*"],  # Vite dev server
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -63,7 +63,7 @@ def pipeline_events(topic: str):
 
         # Step 4 - critic
         yield sse({"step": "critic", "status": "running"})
-        feedback = critic_chain.invoke({"reports": state["report"]})
+        feedback = critic_chain.invoke({"report": state["report"]})
         state["feedback"] = feedback if isinstance(feedback, str) else str(getattr(feedback, "content", feedback))
         yield sse({"step": "critic", "status": "done", "content": state["feedback"]})
 
