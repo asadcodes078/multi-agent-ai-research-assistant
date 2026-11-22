@@ -239,7 +239,9 @@ export default function App() {
                     </div>
                   )}
                   <article className="md">
-                    <ReactMarkdown>{activeContent}</ReactMarkdown>
+                    <ReactMarkdown>{typeof activeContent === "string"
+      ? activeContent
+      : JSON.stringify(activeContent, null, 2)}</ReactMarkdown>
                   </article>
                 </>
               ) : status[activeTab] === "running" ? (

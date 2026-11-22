@@ -31,13 +31,13 @@ def reader_node(state):
         ]
     })
     return {
-        "scraped_content":result["messages"][-1].content
+        "extracted_content":result["messages"][-1].content
     }
 
 def writer_node(state):
     research_combined = (
         f"SEARCH RESULTS:\n{state['search_result']}\n\n"
-        f"SCRAPED CONTENT:\n{state['scraped_content']}"
+        f"SCRAPED CONTENT:\n{state['extracted_content']}"
     )
 
     report = writer_chain.invoke({

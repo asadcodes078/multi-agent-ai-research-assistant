@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.agents import create_agent
 from tools import web_search,scrap_url
 from langchain_core.prompts import ChatPromptTemplate
@@ -7,7 +7,7 @@ from langchain_core.output_parsers import StrOutputParser
 
 load_dotenv()   
 
-llm = ChatOpenAI(model="gpt-4o-mini",temperature=0)
+llm = ChatGoogleGenerativeAI(model="gemini-3.6-flash",max_retries=2)
 
 # 1st agent
 

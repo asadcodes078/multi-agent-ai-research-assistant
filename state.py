@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import TypedDict
 
 class ResearchState:
     topic:str
