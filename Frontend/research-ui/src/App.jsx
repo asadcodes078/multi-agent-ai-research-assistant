@@ -5,7 +5,10 @@
 import { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 
-const API_BASE = import.meta.env.VITE_API_URL;
+const API_BASE = (
+  import.meta.env.VITE_API_URL ||
+  (import.meta.env.DEV ? "http://localhost:8000" : "")
+).replace(/\/+$/, "");
 
 const STEPS = [
   { id: "search", name: "Search agent", hint: "Finds recent, reliable sources", tab: "Sources" },
