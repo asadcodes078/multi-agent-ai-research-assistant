@@ -8,7 +8,7 @@ Built with **Python, OpenAI, LangChain, LangGraph, Tavily, BeautifulSoup, and Re
 
 - **Web Search:** Uses Tavily to find relevant information and research sources from the web.
 - **Web Scraping:** Uses BeautifulSoup to extract useful content from selected web pages.
-- **AI Research Writer:** Uses OpenAI models through LangChain to generate structured and detailed research reports.
+- **AI Research Writer:** Uses gemini models through LangChain to generate structured and detailed research reports.
 - **AI Critic:** Evaluates generated reports and provides scores, strengths, and improvement suggestions.
 - **Multi-Agent Architecture:** Separates research tasks into specialized agents.
 - **Workflow Orchestration:** Uses LangGraph to manage agent execution and shared workflow state.
@@ -63,7 +63,7 @@ The application follows a multi-agent research workflow:
 | Technology | Purpose |
 |---|---|
 | Python | Backend development |
-| OpenAI | Large Language Model |
+| gemini | Large Language Model |
 | LangChain | LLM integration and agent development |
 | LangGraph | Multi-agent workflow orchestration |
 | Tavily | Web search |
@@ -133,13 +133,13 @@ pip install -r requirements.txt
 Create a `.env` file in the root directory.
 
 ```env
-OPENAI_API_KEY=your_openai_api_key
+GOOGLE_API_KEY=your_gemini_api_key
 TAVILY_API_KEY=your_tavily_api_key
 ```
 
 Get your API keys:
 
-- OpenAI: https://platform.openai.com/api-keys
+- gemini: https://platform.gemini.com/api-keys
 - Tavily: https://tavily.com/
 
 **Important:** Never upload your `.env` file or expose API keys on GitHub.
@@ -204,7 +204,7 @@ The critic evaluation includes:
 
 | Variable | Description |
 |---|---|
-| `OPENAI_API_KEY` | OpenAI API authentication |
+| `GOOGLE_API_KEY` | gemini API authentication |
 | `TAVILY_API_KEY` | Tavily search API authentication |
 
 ## 🎯 Project Objective
